@@ -7,6 +7,11 @@ import matplotlib.pyplot as plt
 st.title("Análise de Dados de Saúde 🏥")
 st.subheader("Desafio Individual | Aluna: Ayanne Almeida")
 
+# Objetivo
+st.markdown("""
+**Objetivo:** Análise dos diagnósticos e da saúde cardiovascular em 2024, entendendo os diagnósticos mais comuns e sensíveis para priorização de recomendações.
+""")
+
 st.header("1. Análise Exploratória Inicial (Distribuição de Diagnósticos)")
 # 1. Análise Exploratória Inicial (Distribuição de Diagnósticos)
 
