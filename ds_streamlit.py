@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Carregar os dados
@@ -9,45 +8,30 @@ df = pd.read_csv('health_data.csv')
 # Contagem de diagnósticos
 diagnosis_counts = df['Diagnosis'].value_counts()
 
-st.write("ola")
+st.title("Análise de Dados de Saúde 🏥")
 
-# Gráfico de barras
-plt.figure(figsize=(10, 5))
-sns.barplot(x=diagnosis_counts.index, y=diagnosis_counts.values, palette="viridis")
-plt.title("Distribuição de Diagnósticos em 2024", fontsize=14)
-plt.xlabel("Diagnóstico")
-plt.ylabel("Número de Pacientes")
-plt.xticks(rotation=45)
-plt.show()
+st.header("Distribuição de Diagnósticos em 2024")
+st.bar_chart(diagnosis_counts)
 
 # Boxplot para Blood_Pressure
-plt.figure(figsize=(12, 6))
-sns.boxplot(data=df, x='Diagnosis', y='Blood_Pressure', palette="Set2")
-plt.title("Variação da Pressão Arterial por Diagnóstico", fontsize=14)
-plt.xlabel("Diagnóstico")
-plt.ylabel("Pressão Arterial")
-plt.xticks(rotation=45)
-plt.show()
+st.header("Variação da Pressão Arterial por Diagnóstico")
+blood_pressure_fig = sns.boxplot(data=df, x='Diagnosis', y='Blood_Pressure', palette="Set2")
+st.pyplot(blood_pressure_fig.figure)
 
 # Boxplot para Cholesterol_Level
-plt.figure(figsize=(12, 6))
-sns.boxplot(data=df, x='Diagnosis', y='Cholesterol_Level', palette="Set2")
-plt.title("Variação do Nível de Colesterol por Diagnóstico", fontsize=14)
-plt.xlabel("Diagnóstico")
-plt.ylabel("Colesterol (mg/dL)")
-plt.xticks(rotation=45)
-plt.show()
-
+st.header("Variação do Nível de Colesterol por Diagnóstico")
+cholesterol_fig = sns.boxplot(data=df, x='Diagnosis', y='Cholesterol_Level', palette="Set2")
+st.pyplot(cholesterol_fig.figure)
 
 # Filtrar pacientes com colesterol alto
 high_chol = df[df['Cholesterol_Level'] > 200]
-
-# Contagem por diagnóstico
 high_chol_counts = high_chol['Diagnosis'].value_counts()
 
 # Gráfico de pizza
-plt.figure(figsize=(8, 8))
-plt.pie(high_chol_counts, labels=high_chol_counts.index, autopct='%1.1f%%',
-        colors=sns.color_palette("pastel"), startangle=90)
-plt.title("Pacientes com Colesterol >200 mg/dL por Diagnóstico", fontsize=14)
-plt.show()
+st.header("Pacientes com Colesterol > 200 mg/dL por Diagnóstico")
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots()
+ax.pie(high_chol_counts, labels=high_chol_counts.index, autopct='%1.1f%%',
+       colors=sns.color_palette("pastel"), startangle=90)
+ax.set_title("Distribuição de Pacientes com Alto Colesterol")
+st.pyplot(fig)
