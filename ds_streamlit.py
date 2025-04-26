@@ -9,6 +9,8 @@ df = pd.read_csv('health_data.csv')
 # Contagem de diagnósticos
 diagnosis_counts = df['Diagnosis'].value_counts()
 
+st.write("ola")
+
 # Gráfico de barras
 plt.figure(figsize=(10, 5))
 sns.barplot(x=diagnosis_counts.index, y=diagnosis_counts.values, palette="viridis")
