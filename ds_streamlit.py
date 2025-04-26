@@ -63,4 +63,4 @@ plt.pie(high_chol_counts, labels=high_chol_counts.index, autopct='%1.1f%%',
 plt.title("Pacientes com Colesterol >200 mg/dL por Diagnóstico", fontsize=14)
 plt.show()
 
-
+"""
