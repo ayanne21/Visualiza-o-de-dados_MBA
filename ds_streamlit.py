@@ -25,7 +25,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Carregar os dados
-df = pd.read_csv('/health_data.csv')
+df = pd.read_csv('health_data.csv')
 
 # Contagem de diagnósticos
 diagnosis_counts = df['Diagnosis'].value_counts()
