@@ -24,6 +24,7 @@ diagnosis_counts = df['Diagnosis'].value_counts()
 st.header("Distribuição de Diagnósticos em 2024")
 st.bar_chart(diagnosis_counts)
 
+st.header("2. Comparação de Pressão Arterial e Colesterol por Diagnóstico)")
 # 2. Comparação de Pressão Arterial e Colesterol por Diagnóstico
 
 # Boxplot para Blood_Pressure
@@ -40,6 +41,7 @@ sns.boxplot(data=df, x='Diagnosis', y='Cholesterol_Level', palette="Set2", ax=ax
 plt.xticks(rotation=45)
 st.pyplot(cholesterol_fig)
 
+st.header("3. Identificação de Pacientes com Colesterol Alto (>200))")
 # 3. Identificação de Pacientes com Colesterol Alto (>200)
 
 # Filtrar pacientes com colesterol alto
