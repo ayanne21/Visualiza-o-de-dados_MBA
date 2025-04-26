@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 st.title("Análise de Dados de Saúde 🏥")
 st.subheader("Desafio Individual | Aluna: Ayanne Almeida")
 
+st.header("1. Análise Exploratória Inicial (Distribuição de Diagnósticos)")
 # 1. Análise Exploratória Inicial (Distribuição de Diagnósticos)
 
 # Carregar os dados
