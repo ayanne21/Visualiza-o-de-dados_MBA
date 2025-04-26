@@ -21,7 +21,6 @@ df = pd.read_csv('health_data.csv')
 # Contagem de diagnósticos
 diagnosis_counts = df['Diagnosis'].value_counts()
 
-st.header("Distribuição de Diagnósticos em 2024")
 st.bar_chart(diagnosis_counts)
 
 st.header("2. Comparação de Pressão Arterial e Colesterol por Diagnóstico)")
@@ -49,7 +48,7 @@ high_chol = df[df['Cholesterol_Level'] > 200]
 high_chol_counts = high_chol['Diagnosis'].value_counts()
 
 # Gráfico de pizza
-st.header("Pacientes com Colesterol > 200 mg/dL por Diagnóstico")
+
 fig, ax3 = plt.subplots()
 ax3.pie(high_chol_counts, labels=high_chol_counts.index, autopct='%1.1f%%',
         colors=sns.color_palette("pastel"), startangle=90)
